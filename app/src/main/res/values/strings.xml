@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Altimetro GPS</string>
+    <string name="action_settings">Settings</string>
+    <string name="latitud">Latitud:</string>
+    <string name="longitud">Longitud:</string>
+    <string name="altitud">Altitud:</string>
+    <string name="parar_actualizaciones">Parar Actualizaciones</string>
+    <string name="iniciar_actualizaciones">Iniciar Actualizaciones</string>
+    <string name="title_activity_main2">Opciones</string>
+    <string name="metros">Metros</string>
+    <string name="pies">Pies</string>
+</resources>
+
