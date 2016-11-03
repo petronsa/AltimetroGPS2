@@ -1,6 +1,9 @@
 package com.app.petron.altimetrogps;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity
     private ToggleButton btnActualizar;
     private LocationRequest locRequest;
     private Switch switch1;
+    SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +116,24 @@ public class MainActivity extends AppCompatActivity
         }
 
 
+        pref= PreferenceManager.getDefaultSharedPreferences(this);
+
+        preferencias();
+    }
+
+    public void preferencias() {
+        if (pref.getBoolean("swicth",true)){
+            switch1.setChecked(true);
+        }else {
+            switch1.setChecked(false);
+        }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        // llamamos método preferencias;
+        preferencias();
     }
 
     private void toggleLocationUpdates(boolean enable) {
