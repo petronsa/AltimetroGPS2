@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Altimètre GPS</string>
+    <string name="pies">Pieds</string>
+    <string name="metros">Mètres</string>
+    <string name="altitud">Altitude:</string>
+    <string name="iniciar_actualizaciones">Recharger altitude</string>
+    <string name="latitud">Latitude:</string>
+    <string name="longitud">Longitude:</string>
+    <string name="action_settings">Réglage</string>
+    <string name="parar_actualizaciones">Pas d\'altitude de mise à jour</string>
+    <string name="salir">Sortie</string>
+    <string name="desconocida">inconnu</string>
+    <string name="longitud_desconocida">Longitude: (Information inconnue)</string>
+    <string name="altitud_desconocida">Altitude: (Information inconnue)</string>
+    <string name="latitud_desconocida">Latitude:(Information inconnue)</string>
+</resources>

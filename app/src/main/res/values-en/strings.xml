@@ -11,8 +11,7 @@
     <string name="pies">Feet</string>
     <string name="salir">Exit</string>
     <string name="desconocida">unknown</string>
+    <string name="longitud_desconocida">Longitude:(Unknown)</string>
     <string name="altitud_desconocida">Altitude: (Unknown)</string>
     <string name="latitud_desconocida">Latitude: (Unknown)</string>
-    <string name="longitud_desconocida">Longitude:(Unknown)</string>
 </resources>
-

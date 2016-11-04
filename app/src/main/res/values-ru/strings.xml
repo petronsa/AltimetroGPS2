@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Высотомер GPS</string>
+    <string name="pies">ноги</string>
+    <string name="action_settings">опции</string>
+    <string name="altitud">высота над уровнем моря</string>
+    <string name="iniciar_actualizaciones">высота Reload</string>
+    <string name="latitud">широта:</string>
+    <string name="longitud">долгота:</string>
+    <string name="metros">метры</string>
+    <string name="parar_actualizaciones">Не обновлять высоту</string>
+    <string name="salir">Выход</string>
+    <string name="desconocida">неизвестный</string>
+    <string name="longitud_desconocida">Долгота: (Неизвестно)</string>
+    <string name="altitud_desconocida">Высота над уровнем моря: (Неизвестно)</string>
+    <string name="latitud_desconocida">Широта: (Неизвестно)</string>
+</resources>

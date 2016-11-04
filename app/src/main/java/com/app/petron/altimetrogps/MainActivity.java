@@ -266,21 +266,22 @@ public class MainActivity extends AppCompatActivity
             Double conversor1,conversor2;
             //convertimos la altura de nuevo a Double para poder convertirla
             conversor1 = Double.valueOf(conversor);
-            //ahora convertimos en metros o pies depe5nde de opcion
+            //ahora convertimos en metros o pies depende de opcion
             conversor2 = conversor1*opcion;
             //Redondeamos la altura a un decimal y se convierte en String
             conversor3 = String.format("%.1f",conversor2);
 
 
 
+            //utilizamos getText para entrar el R.string más los valores
 
-            lblLatitud.setText("Latitud: " + String.valueOf(loc.getLatitude()));
-            lblLongitud.setText("Longitud: " + String.valueOf(loc.getLongitude()));
-            lblAltitud.setText("Altiud: " + conversor3);
+            lblLatitud.setText(getText(R.string.latitud) + String.valueOf(loc.getLatitude()));
+            lblLongitud.setText(getText(R.string.longitud) + String.valueOf(loc.getLongitude()));
+            lblAltitud.setText(getText(R.string.altitud)+ conversor3);
         } else {
-            lblLatitud.setText("Latitud: (desconocida)");
-            lblLongitud.setText("Longitud: (desconocida)");
-            lblAltitud.setText("Altitud: (desconocida)");
+            lblLatitud.setText(R.string.latitud_desconocida);
+            lblLongitud.setText(R.string.longitud_desconocida);
+            lblAltitud.setText(R.string.altitud_desconocida);
         }
     }
 
