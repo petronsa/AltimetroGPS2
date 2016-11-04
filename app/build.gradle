@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
     compile 'com.google.android.gms:play-services-location:9.4.0'
+    compile files('libs/StartAppInApp-3.5.1.jar')
 }

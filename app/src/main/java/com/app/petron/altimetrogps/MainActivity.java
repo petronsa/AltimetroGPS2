@@ -37,6 +37,9 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.startapp.android.publish.StartAppAd;
+import com.startapp.android.publish.StartAppSDK;
+
 
 
 public class MainActivity extends AppCompatActivity
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity
         GoogleApiClient.ConnectionCallbacks,
         LocationListener{
     public double opcion;
+    private StartAppAd startAppAd = new StartAppAd(this);
     private static final String LOGTAG = "android-localizacion";
 
     private static final int PETICION_PERMISO_LOCALIZACION = 101;
@@ -64,6 +68,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StartAppSDK.init(this, "101423750", "210832874", true);
         setContentView(R.layout.activity_main);
         lblLatitud = (TextView) findViewById(R.id.lblLatitud);
         lblLongitud = (TextView) findViewById(R.id.lblLongitud);
@@ -122,9 +127,35 @@ public class MainActivity extends AppCompatActivity
         }
 
 
+        startAppAd.onResume();
 
 
+    }
 
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+
+        guardarpreferencias();
+
+        //poner en marcha la publicidad al salir
+        MainActivity.this.startAppAd.showAd();
+        MainActivity.this.startAppAd.loadAd();
+
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        startAppAd.onPause();
+    }
+
+    @Override
+    protected void onStart() {
+        // TODO Auto-generated method stub
+        super.onStart();
     }
 
         public void cargarpreferencias(){
