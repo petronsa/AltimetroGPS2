@@ -57,7 +57,9 @@ public class MainActivity extends AppCompatActivity
     private ToggleButton btnActualizar;
     private LocationRequest locRequest;
     private Switch switch1;
-    SharedPreferences pref;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 toggleLocationUpdates(btnActualizar.isChecked());
+                guardarpreferencias();
             }
         });
         //Construcción cliente API Google
@@ -92,9 +95,12 @@ public class MainActivity extends AppCompatActivity
             }
 
         });*/
+
+
         switch1 = (Switch) findViewById(R.id.switch1);
-        //establecer el switch en off
-        switch1.setChecked(false);
+
+        cargarpreferencias();
+
         //poner el swicth a escuchar
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -116,25 +122,28 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        pref= PreferenceManager.getDefaultSharedPreferences(this);
 
-        preferencias();
+
+
     }
 
-    public void preferencias() {
-        if (pref.getBoolean("swicth",true)){
-            switch1.setChecked(true);
-        }else {
-            switch1.setChecked(false);
+        public void cargarpreferencias(){
+            SharedPreferences preferences = getSharedPreferences("Preferencias",Context.MODE_PRIVATE);
+            switch1.setChecked(preferences.getBoolean("checked",false));
         }
-    }
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        // llamamos método preferencias;
-        preferencias();
-    }
+        public void guardarpreferencias (){
+            SharedPreferences preferences = getSharedPreferences("Preferencias",Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor=preferences.edit();
+            boolean valor = switch1.isChecked();
+            editor.putBoolean("checked",valor);
+            editor.commit();
+
+      }
+
+
+
+
 
     private void toggleLocationUpdates(boolean enable) {
         if (enable) {
@@ -251,11 +260,16 @@ public class MainActivity extends AppCompatActivity
 
         if (loc != null) {
             String conversor,conversor3;
+            //convertimos la altitud en una variable String
             conversor = String.valueOf(loc.getAltitude());
+            //
             Double conversor1,conversor2;
+            //convertimos la altura de nuevo a Double para poder convertirla
             conversor1 = Double.valueOf(conversor);
+            //ahora convertimos en metros o pies depe5nde de opcion
             conversor2 = conversor1*opcion;
-            conversor3 = String.valueOf(conversor2);
+            //Redondeamos la altura a un decimal y se convierte en String
+            conversor3 = String.format("%.1f",conversor2);
 
 
 
@@ -331,9 +345,9 @@ public class MainActivity extends AppCompatActivity
        Intent explicit_intent;
 
         switch (item.getItemId()){
-            case R.id.action_settings:
-                explicit_intent = new Intent(this,MainActivity.class);
-                 startActivity(explicit_intent);
+            case R.id.action_exit:
+                guardarpreferencias();
+                finish();
                 break;
 
 
