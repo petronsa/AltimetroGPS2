@@ -379,6 +379,9 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()){
             case R.id.action_exit:
                 guardarpreferencias();
+                //poner en marcha la publicidad al salir
+                MainActivity.this.startAppAd.showAd();
+                MainActivity.this.startAppAd.loadAd();
                 finish();
                 break;
 
